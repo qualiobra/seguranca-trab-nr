@@ -2,7 +2,7 @@
 # check-citacoes.sh — gate determinístico de EXISTÊNCIA das citações "NR-XX ... item" dos destilados
 # no texto oficial local (plano v2, item 5). Checa EXISTÊNCIA do item citado, não o mérito.
 #
-# Correções de revisão adversarial:
+# Correções da revisão Codex v2 (achados 4, 5 e 6):
 #   [4] manifesto embutido das 22 NRs: fonte esperada ausente do glob é ERRO FATAL (nunca skip
 #       silencioso); NR citada fora do manifesto e sem fonte vira aviso NR-DESCONHECIDA (visível,
 #       não descartada); auto-teste de cobertura: falha se 0 arquivos-alvo ou 0 citações.
@@ -72,10 +72,9 @@ for nr in sorted(k for k in oficial if k not in MANIFESTO):
                   f"embutido do script — atualizar o manifesto (as citações a {nr} são verificadas)")
 
 # --- alvos (destilados) ---------------------------------------------------------------------
-alvos = sorted(f for pat in ("00-guia-interdicao/*.md", "02-fichas-operacionais/*.md",
-                             "03-matrizes/*.md", "04-templates/*.md",
-                             "04-templates/checklists/*.md", "05-treinamentos/*.md")
-               for f in glob.glob(f"{base}/{pat}"))
+alvos = sorted(f for d in ("00-guia-interdicao", "02-fichas-operacionais", "03-matrizes",
+                           "04-templates", "05-treinamentos")
+               for f in glob.glob(f"{base}/{d}/**/*.md", recursive=True))
 if not alvos:
     erros.append("ERRO COBERTURA-ZERO: nenhum arquivo-alvo casou com os globs dos destilados "
                  "(o gate estaria certificando o vazio)")

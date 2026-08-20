@@ -26,6 +26,16 @@ body:
       placeholder: "NR-XX, item X.X.X: \"...trecho literal...\""
     validations:
       required: true
+  - type: input
+    id: versao
+    attributes:
+      label: "Versão da base (opcional)"
+      description: "Data do snapshot (ver _meta/CHANGELOG.md) ou hash do commit"
+  - type: textarea
+    id: correcao
+    attributes:
+      label: "Correção sugerida (opcional)"
+      description: "Como o trecho deveria ficar"
   - type: dropdown
     id: gravidade
     attributes:
