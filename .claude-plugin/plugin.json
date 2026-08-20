@@ -1,0 +1,8 @@
+{
+  "name": "base-nr-construcao",
+  "version": "1.0.0",
+  "description": "Base de conhecimento de Normas Regulamentadoras (NRs) para obras de construção civil no Brasil, com skill de consulta (consulta-nr) e agente de segurança do trabalho (engenheiro-sst). Toda afirmação normativa cita NR + item verificado contra o texto oficial.",
+  "author": {
+    "name": "QualiApps"
+  }
+}
