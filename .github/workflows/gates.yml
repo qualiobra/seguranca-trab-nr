@@ -1,0 +1,14 @@
+name: gates
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Citações existem no texto oficial
+        run: bash _meta/check-citacoes.sh
+      - name: Links internos íntegros
+        run: bash _meta/check-links.sh
