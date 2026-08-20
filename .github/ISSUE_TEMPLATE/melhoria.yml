@@ -1,0 +1,29 @@
+name: "Melhoria"
+description: "Novo template/checklist, destilado, script ou documentação"
+title: "[melhoria] "
+labels: ["melhoria"]
+body:
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: "Tipo"
+      options:
+        - "Novo template ou checklist"
+        - "Melhoria em ficha/matriz/guia"
+        - "Script ou automação"
+        - "Skill/agente"
+        - "Documentação"
+    validations:
+      required: true
+  - type: textarea
+    id: descricao
+    attributes:
+      label: "Descrição"
+    validations:
+      required: true
+  - type: textarea
+    id: valor
+    attributes:
+      label: "Por que ajuda no dia a dia da obra"
+    validations:
+      required: true

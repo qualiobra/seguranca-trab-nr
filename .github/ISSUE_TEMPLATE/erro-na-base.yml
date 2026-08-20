@@ -1,0 +1,38 @@
+name: "Erro na base"
+description: "Citação errada, número trocado, link quebrado ou afirmação sem lastro"
+title: "[erro] "
+labels: ["erro"]
+body:
+  - type: input
+    id: arquivo
+    attributes:
+      label: "Arquivo afetado"
+      description: "Caminho do arquivo (ex.: 02-fichas-operacionais/ficha-NR-18.md)"
+      placeholder: "02-fichas-operacionais/ficha-NR-XX.md"
+    validations:
+      required: true
+  - type: textarea
+    id: problema
+    attributes:
+      label: "O que está errado"
+      description: "Cite o trecho do arquivo e explique o problema"
+    validations:
+      required: true
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: "Evidência no texto oficial (obrigatória)"
+      description: "Cole o trecho do dispositivo em 01-nrs-texto-oficial/ que prova o erro, com NR + item (ex.: NR-18, 18.11.7 \"c\"). Issue sem evidência verificável será devolvida."
+      placeholder: "NR-XX, item X.X.X: \"...trecho literal...\""
+    validations:
+      required: true
+  - type: dropdown
+    id: gravidade
+    attributes:
+      label: "Gravidade"
+      options:
+        - "Induz decisão errada em campo (número/exigência incorreta)"
+        - "Impreciso ou ambíguo"
+        - "Forma (typo, link quebrado, formatação)"
+    validations:
+      required: true
